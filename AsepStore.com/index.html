@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsepStore.com</title>
+  <style>
+    * {box-sizing: border-box margin: 0; padding: 0; font-family: 'segoe UI', sans-serif: }
+    body { background: #50a3f7; color:#05325f }
+
+    header {
+      background: liner-gradient(135deg, #05325f, #50a3f7);
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container-logo {
+      dislay: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px
+    }
+    .logo {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 2px rgba(0,0,0,0.2)
+      transition: transform 0.3s ease;
+    }
+    .logo:hover{
+      transform: scale(1.05);
+    }
+
+    
+
+    header h1 { font-size: 24px; letter-spacing: 1px; }
+    nav a {
+      color: #05325f;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      background: url('images/icons/AsepStore.png') center/cover no-repeat;
+      padding: 10px 40px;
+      text-aligan: center;
+      color: whitesmoke;
+    }
+    .hero h2 { font-size: 20px; margin-bottom: 15px; }
+    .hero p { font-size: 18px; margin-bottom: 25px; }
+    .btn {
+      background: #1173d6;
+      color: whitesmoke;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-synthesis-weight: bold;
+    }
+    .btn:hover { background: #1173d6;}
+    .container { padding: 40px; max-width: 1200; margin: auto; }
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body { padding: 20px; }
+    .card-body h3 { font-size: 20px; margin-bottom: 10px; }
+    .price { color: #1976d2; font-weight: bold; margin-bottom: 15px; }
+
+    .about-section {
+      background-color: #fff;
+      padding: 60px 20px;
+      border-radius: 15px;
+      margin-top 40px;
+      box-shadow: 0 4px 15px rbga(0,0,0,0.05);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    
+    .about-image {
+      flex: 1;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column-reverse
+      }
+    }
+    
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/product.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">Asep<span>Store</span></a>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">produk</a></li>
+        <li><a href="services.html">Layanan</a></li>
+        <li><a href="about.html">Tentang</a></li>
+        <li><a href="contact.html" class="btn-wa">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="search-box" id="Home" style="text-align:center; margin-top: 20px;">
+    <input
+      font-size= 18px;
+      size="50px"
+      type="text"
+      id="searchInput"
+      placeholder="🔎Cari produk ..."
+      onkeyup="searchProduk()"
+      style="padding: 5px; width: 80%; max-width: 500px; border-radius: 20px; border: 1px solid #17d1c8; font-size:16px;"
+    />
+  </div>
+
+
+
+  <div class="slide-container">
+    <div class="slider">
+      <div class="slide active">
+        <img src="images/banner/B0.jpeg" alt="Pelayan Toko">
+        <div class="slide-caption">Pelayan Toko Ramah</div>
+      </div>
+      <div class="slide">
+        <img src="images/banner/B1.jpeg" alt="Promo produk">
+        <div class="slide-caption">Promo produk</div>
+      </div>
+      <div class="slide">
+        <img src="images/banner/B2.jpeg" alt="Promo Sembako">
+        <div class="slide-caption">kepuasan belanja</div>
+      </div>
+      <div class="slide">
+        <img src="images/banner/B3.jpeg" alt="Promo Elektronik">
+        <div class="slide-caption">Produk Berkualitas</div>
+      </div>
+    <div class="slide">
+      <img src="images/banner/P0.jpeg" alt="Bisa Cod">
+      <div class="slide-caption">Bisa Cod</div>
+    </div>
+    <div class="slide">
+      <img src="images/banner/P1.jpeg" alt="Pengiriman cepat">
+      <div class="slide-caption">Pengiriman cepat</div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  
+  <!-- ===== HEADER ===== -->
+  <section class="product-header">
+    <h1>Semua Produk</h1>
+    <p>Pilih produk terbaik sesuai kebutuhan Anda</p>
+  </section>
+
+   <!-- ===== FILTER ===== -->
+  <section class="filter">
+    <button onclick="filterProduct('all')" class="active">Semua</button>
+    <button onclick="filterProduct('Minyak')">Minyak</button>
+    <button onclick="filterProduct('Sembako')">Sembako</button>
+    <button onclick="filterProduct('Makanan')">Makanan</button>
+    <button onclick="filterProduct('Fashion')">Fashion</button>
+    <button onclick="filterProduct('Elektronik')">Elektronik</button>
+  </section>
+
+   <!-- ===== PRODUCT LIST ===== -->
+  <section class="product-list">
+    <div class="product-list">
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="images/banner/products/Minyak goreng/1dus250ml.jpeg" alt="Minyak goreng 1 dus 250ml">         
+        </div>          
+        <div class="product-info">
+          <h3 class="product-tile">🥳PROMO HARI INI🥳</h3>
+          <h3 class="product-tile">Minyak goreng resto 1 dus isi 48pcs 250ml</h3>
+          <p class="product-price">Rp 300.000</p>
+      <a href="#" onclick="orderWA('Minyak goreng')" class="btn-primary">Order</a>
+    </div>
+  </div>
+
+  </section>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Solusi Produk Berkualitas<br>Untuk Kebutuhan Anda</h1>
+      <p>AsepStore menyediakan berbagai produk pilihan dengan layanan terpercaya.</p>
+
+      <div class="hero-btn">
+        <a href="products.html" class="btn-primary">Lihat Produk</a>
+        <a href="produk.html" class="btn-secondary">Lainnya </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KATEGORI PRODUK ===== -->
+  <section class="categories">
+    <h2>Kategori Produk</h2>
+
+    <div class="category-grid">
+      <a href="produk/Minyak.html" class="category-card">Minyak</a>
+      <a href="produk/Elektronik.html" class="category-card">Elektronik</a>
+      <a href="produk/Makanan.html" class="category-card">Makanan</a>
+      <a href="produk/Fashion.html" class="category-card">Fashion</a>
+      <a href="produk/Sembako.html" class="category-card">Sembako</a>
+      <a href="produk/"
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2026 AsepStore. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/order.js"></script>
+
+</body>
+</html>
